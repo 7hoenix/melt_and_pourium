@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "static#index"
+  root "categories#index"
 
   get "vendors",      to: "static#show"
 
