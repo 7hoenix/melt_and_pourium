@@ -22,7 +22,7 @@ RSpec.feature "Admin can" do
 
     click_on "Create New Category"
     fill_in("Name", with: "Gems")
-    fill_in("Description", with: "Cool looking gems")
+    fill_in("Image Url", with: "http://gemboutiquepa.com/wp-content/uploads/2014/08/Mix4.jpg")
     click_on "Create Category"
 
     expect(current_path).to eq(categories_path)
