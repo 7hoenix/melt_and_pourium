@@ -16,6 +16,12 @@
                   </div>
               </div>
               <div class="row">
+                <div class="col-lg-12">
+                  <%= link_to "Create New Category", new_admin_category_path, class: "btn
+                  btn-md btn-primary" %>
+                </div>
+              </div>
+              <div class="row">
                   <div class="col-md-offset-4 col-md-4 text-center">
                     <h2 class="order-filter"><%= link_to("All Orders", admin_dashboard_path(filter: nil), method: :post) %></h2>
                 </div>
