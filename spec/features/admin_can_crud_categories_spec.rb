@@ -16,16 +16,33 @@ RSpec.feature "Admin can" do
     end
   end
 
-  scenario "create new categories" do
-    create_admin
-    admin_logs_in
-
+  def create_category
     click_on "Create New Category"
     fill_in("Name", with: "Gems")
     fill_in("Image Url", with: "http://gemboutiquepa.com/wp-content/uploads/2014/08/Mix4.jpg")
     click_on "Create Category"
+  end
+
+  scenario "create new categories" do
+    create_admin
+    admin_logs_in
+    create_category
 
     expect(current_path).to eq(categories_path)
     expect(page).to have_content("Gems")
+  end
+
+  scenario "edit an existing category" do
+    create_admin
+    admin_logs_in
+    create_category
+
+    click_on "Edit Gems"
+    fill_in("Name", with: "Action Figures")
+    fill_in("Image Url", with: "http://www.entertainmentearth.com/images/AUTOIMAGES/DC80319AAlg.jpg")
+    click_on "Update Category"
+
+    expect(current_path).to eq(categories_path)
+    expect(page).to have_content("Action Figures")
   end
 end
