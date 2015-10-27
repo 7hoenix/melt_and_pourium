@@ -1,7 +1,12 @@
 <%= stylesheet_link_tag 'heroic-features', media: 'all', 'data-turbolinks-track' => true %>
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Create New Category", new_admin_category_path, class: "btn
+                  btn-md btn-primary" %>
+    <% end %>
 
       <%= render partial: "carousel" %>
     <hr>
+
     <!-- Categories -->
     <% @categories.each do |category| %>
 
@@ -10,6 +15,8 @@
             <img src=<%= category.image_url %> alt="">
             <div class="caption text-center">
                 <h2><%= link_to category.name, category_path(category.id) %></h2>
+                <%= link_to "Edit #{category.name}", edit_admin_category_path(category.id),
+              class: "btn btn-md btn-primary" %>
             </div>
         </div>
     </div>
