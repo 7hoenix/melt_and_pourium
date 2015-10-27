@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20150930222043) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                                                                                                                null: false
-    t.datetime "updated_at",                                                                                                                null: false
-    t.string   "image_url",  default: "http://questionarium.net/wp-content/uploads/sites/4/2014/01/Foods-That-Are-High-In-Cholesterol.jpg"
+    t.datetime "created_at",                                                                          null: false
+    t.datetime "updated_at",                                                                          null: false
+    t.string   "image_url",  default: "http://gemboutiquepa.com/wp-content/uploads/2014/08/Mix4.jpg"
   end
 
   create_table "items", force: :cascade do |t|
