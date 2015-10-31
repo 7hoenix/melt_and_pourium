@@ -31,12 +31,13 @@
         <img src=<%= i.image_url %> alt="">
         <h3><%= link_to i.name, category_item_path(@category.id, i.id) %></h3>
         <p><%= i.description %></p>
+        <p>Quantity: <%= i.quantity %></p>
         <h4><%= number_to_currency(i.price) %></h4>
         <p>
           <%= button_to "Add #{i.name}" , cart_items_path(item_id: i.id), class: "btn btn-primary" %>
         </p>
           <% if current_user && current_user.admin? %>
-            <%= link_to "Edit Item", edit_admin_category_item_path(@category, i) %>
+            <%= link_to "Edit #{i.name}", edit_admin_category_item_path(@category, i) %>
             <%= link_to "Delete Item", admin_category_item_path(@category, i), method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
       </div>
