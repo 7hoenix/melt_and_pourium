@@ -1,6 +1,7 @@
 RSpec.configure do |config|
   require 'simplecov'
   SimpleCov.start 'rails'
+  require "factory_girl_rails"
 
   require 'capybara/rspec'
   config.include Capybara::DSL
@@ -18,6 +19,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include FactoryGirl::Syntax::Methods
 
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
