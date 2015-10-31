@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :items, except: [:show, :index]
-    resources :categories, only: [:new, :create, :edit, :update]
+    resources :categories, only: [:new, :create, :edit, :update, :destroy]
+    resources :categories, only: [:show] do
+      resources :items, except: [:show, :index]
+    end
     get "dashboard",    to: "users#show"
     post "dashboard",    to: "users#update"
   end
