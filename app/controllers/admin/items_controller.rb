@@ -1,19 +1,19 @@
 class Admin::ItemsController < AdminController
   before_action :find_item, only: [:edit, :update, :destroy]
-  before_action :find_category, only: [:edit, :update, :destroy, :new]
+  before_action :find_category, only: [:edit, :destroy, :new, :create]
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
+    item = @category.items.build(item_params)
+    if item.save
       flash[:notice] = "Successfully created item"
-      redirect_to category_items_path(@item.category)
+      redirect_to category_items_path(@category)
     else
-     render :new
+      flash[:errors] = "Item not created"
+      render :new
     end
   end
 
   def edit
-    @category = @item.category
   end
 
   def update
@@ -27,12 +27,12 @@ class Admin::ItemsController < AdminController
   end
 
   def destroy
-    @item.update(status: 1)
-    redirect_to category_items_path(@item.category)
+    @item.destroy
+    redirect_to category_items_path
   end
 
   def new
-    @item = Item.new
+    @item_creator = ItemCreator.new(@category)
   end
 
     private
