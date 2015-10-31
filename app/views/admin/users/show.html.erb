@@ -28,7 +28,7 @@
                               <div class="row">
                                 <%= link_to(admin_dashboard_path(filter: 0), method: :post) do %>
                                   <div class="col-md-12 ">
-                                    <h3 class="order-filter"><%= "Ordered: #{DashboardFormatter.ordered?}" %></h3>
+                                    <h3 class="order-filter"><%= "Paid: #{DashboardFormatter.paid?}" %></h3>
                                   </div>
                                 <% end %>
                               </div>
@@ -41,7 +41,7 @@
                               <div class="row">
                                 <%= link_to(admin_dashboard_path(filter: 1), method: :post) do %>
                                   <div class="col-md-12 ">
-                                    <h3 class="order-filter"><%= "Paid: #{DashboardFormatter.paid?}" %></h3>
+                                    <h3 class="order-filter"><%= "Shipped: #{DashboardFormatter.shipped?}" %></h3>
                                   </div>
                                 <% end %>
                               </div>
