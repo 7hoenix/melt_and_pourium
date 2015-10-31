@@ -17,6 +17,7 @@ RSpec.feature "Admin can" do
   end
 
   def create_category
+    visit categories_path
     click_on "Create New Category"
     fill_in("Name", with: "Gems")
     fill_in("Image Url", with: "http://gemboutiquepa.com/wp-content/uploads/2014/08/Mix4.jpg")
@@ -44,5 +45,14 @@ RSpec.feature "Admin can" do
 
     expect(current_path).to eq(categories_path)
     expect(page).to have_content("Action Figures")
+  end
+
+  xscenario "delete destroys existing category" do
+    create_admin
+    admin_logs_in
+    create_category
+
+    click_on "Edit Gems"
+    click_on "Delete Gems"
   end
 end
