@@ -32,8 +32,7 @@ class Admin::ItemsController < AdminController
   end
 
   def new
-    @item = Item.new
-    @category = Category.find(params[:category_id])
+    @item_creator = ItemCreator.new(@category)
   end
 
     private
