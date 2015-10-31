@@ -6,7 +6,7 @@ class Admin::ItemsController < AdminController
     item = @category.items.build(item_params)
     if item.save
       flash[:notice] = "Successfully created item"
-      redirect_to category_items_path(@category)
+      redirect_to category_path(@category)
     else
       flash[:errors] = "Item not created"
       render :new
@@ -19,16 +19,16 @@ class Admin::ItemsController < AdminController
   def update
     if @item.update(item_params)
       flash[:notice] = "Successfully Updated"
-      redirect_to category_items_path(@item.category)
+      redirect_to category_path(@item.category)
     else
       flash[:errors] = "Invalid update params"
-      redirect_to edit_admin_item_path(@item)
+      redirect_to edit_admin_category_item_path(@item.category, @item)
     end
   end
 
   def destroy
     @item.destroy
-    redirect_to category_items_path
+    redirect_to category_path(@category)
   end
 
   def new
@@ -47,6 +47,6 @@ class Admin::ItemsController < AdminController
 
     def item_params
       params.require(:item).permit(:name, :description, :price, :category_id,
-        :image_url)
+        :image_url, :quantity)
     end
 end
