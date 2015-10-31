@@ -1,4 +1,3 @@
-
 <%= stylesheet_link_tag 'heroic-features', media: 'all', 'data-turbolinks-track' => true %>
 <br>
 <br>
@@ -12,7 +11,7 @@
 
         <br>
 
-        <%= form_for [:admin, @item] do |f| %>
+        <%= form_for [:admin, @item_creator.category, @item_creator.item] do |f| %>
           <div class="form-group">
             <%= f.text_field :name, class: "form-control input-md", placeholder: "Name" %>
           </div>
@@ -25,7 +24,6 @@
           <div class="form-group">
             <%= f.text_field :image_url, class: "form-control input-md", placeholder: "Image Url" %>
           </div>
-          <%= f.hidden_field :category_id, value: @category.id %>
           <div class="form-group">
             <%= f.submit "Create Item" %>
           </div>
