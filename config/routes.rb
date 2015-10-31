@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :charges
 
   resources :categories, only: [:index, :show] do
-    resources :items, only: [:show, :index]
+    resources :items, only: [:show]
   end
 
   namespace :admin do
