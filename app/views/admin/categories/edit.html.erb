@@ -23,8 +23,9 @@
             <%= f.submit "Update Category", class: "btn btn-primary" %>
           </div>
         <% end %>
-        <%= link_to "DELETE CATEGORY", admin_category_path(@category),
-        method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-md btn-danger" %>
+        <%= link_to "DELETE CATEGORY", admin_category_path(@category), method: :delete,
+          data: {confirm: "WARNING: Destructive action. This will also delete all items in this category... so make sure you mean it."},
+          class: "btn btn-md btn-danger" %>
       </div>
   </div>
 </div>
