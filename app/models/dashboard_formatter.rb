@@ -10,11 +10,11 @@ class DashboardFormatter
     link_options_map[order.status]
   end
 
-  def self.ordered?
+  def self.paid?
     Order.where(status: 0).count
   end
 
-  def self.paid?
+  def self.shipped?
     Order.where(status: 1).count
   end
 
@@ -27,7 +27,7 @@ class DashboardFormatter
   end
 
   def default_link_options
-    { "ordered" => { "Cancel" => "cancelled", "Mark as paid" => "paid" },
-    "paid" => { "Cancel" => "cancelled", "Mark as completed" => "completed" } }
+    { "paid" => { "Cancel" => "cancelled", "Mark as shipped" => "shipped" },
+    "shipped" => { "Cancel" => "cancelled", "Mark as completed" => "completed" } }
   end
 end
