@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     creator = OrderCreator.new(cart.data, current_user)
     order = creator.order
     skip_stripe?(order)
-    already_paid?(order) or return
+    #already_paid?(order) or return
     total_price = creator.total_price
 
     redirect_to new_charge_path(order_id: order.id, order_price: total_price,
