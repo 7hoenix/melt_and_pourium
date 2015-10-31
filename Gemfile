@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug'
+  gem "pry"
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'
