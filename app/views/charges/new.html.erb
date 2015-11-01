@@ -3,7 +3,6 @@
     <div class="col-md-offset-3 col-md-6 text-center">
       <div class="well">
         <h2>Order Total: $<%= @total_price %></h2>
-        <h4><%="Estimated delivery time: #{@delivery_time} minutes." %></h4>
         <div class="big-spacer"></div>
           <%= form_tag charges_path do %>
             <%= hidden_field_tag "price_in_pennies", @price_in_pennies %>
