@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
   belongs_to :user
 
-  enum status: [ :paid, :shipped, :cancelled, :completed ]
+  enum status: [ :ordered, :paid, :shipped, :cancelled, :completed ]
   enum notification: [ :unsent, :sent ]
 
   validates :user_id, presence: true

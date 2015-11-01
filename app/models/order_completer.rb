@@ -7,6 +7,8 @@ class OrderCompleter
 
   def process_order
     create_order_items
+    order.status = 1
+    order.save
   end
 
   def create_order_items
